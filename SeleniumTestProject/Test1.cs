@@ -23,7 +23,7 @@ namespace SeleniumTestProject
 
             longinPage.Login();
             Console.WriteLine("Авторизация");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
             var jacet = orderPage.GetJacet().Text;
             var removeJacet = orderPage.AddJacketOrder();

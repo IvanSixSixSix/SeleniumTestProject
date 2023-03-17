@@ -13,7 +13,6 @@ namespace PageObject
         public ShoppingСart(IWebDriver webdriver) : base(webdriver)
         {
         }
-
         private IWebElement bntContinueShopping =>
             _webdriver.FindElement(By.XPath("//button[@name = 'continue-shopping']"));
 

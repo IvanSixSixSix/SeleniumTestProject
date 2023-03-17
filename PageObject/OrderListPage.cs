@@ -96,14 +96,6 @@ namespace PageObject
                 orders[i] = price;
                 i++;
             }
-
-
-            //for (int i = 1; i <= count; i++)
-            //{
-            //    var items = _webdriver.FindElements
-            //        (By.XPath($"//div[@id='inventory_container']//div[@class='inventory_item_price']"));
-               
-            //}
             return orders;
         }
     }
