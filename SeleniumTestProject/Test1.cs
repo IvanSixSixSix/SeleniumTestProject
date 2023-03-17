@@ -22,28 +22,34 @@ namespace SeleniumTestProject
             ShoppingСart cartPage = new ShoppingСart(driver);
 
             longinPage.Login();
-            Thread.Sleep(5000);
+            Console.WriteLine("Авторизация");
+            //Thread.Sleep(1000);
 
             var jacet = orderPage.GetJacet().Text;
             var removeJacet = orderPage.AddJacketOrder();
-            Assert.IsTrue(removeJacet.Text == "Remove");
+            Console.WriteLine($"Добовляем товар \"{jacet}\" в корзину");
+            Assert.IsTrue(removeJacet.Text == "Remove", "Кнопка \"Add to cart\" не поменялась после нажатия");
 
             orderPage.GoToShoppingСart();
-            Thread.Sleep(2000);
+            Console.WriteLine($"Переходим в корзину");
+            Thread.Sleep(1000);
 
             var bookedJacet = cartPage.GetItemInCard(jacet).Text;
-
             Assert.IsTrue(jacet == bookedJacet);
+            Console.WriteLine($"Проверяем наличие товара \"{bookedJacet}\" в корзине");
 
             cartPage.GoToOrderListPage();
+            Console.WriteLine($"Переходим на страницу с товарами");
             Thread.Sleep(2000);
 
             var tshirt = orderPage.GetTshirt().Text;
             var removeTshirt = orderPage.AddTShirtOrder();
-            Assert.IsTrue(removeTshirt.Text == "Remove");
+            Console.WriteLine($"Добовляем товар \"{tshirt}\" в корзину");
+            Assert.IsTrue(removeTshirt.Text == "Remove", "Кнопка \"Add to cart\" не поменялась после нажатия");
 
+            Console.WriteLine($"Переходим в корзину");
             orderPage.GoToShoppingСart();
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             var bookedTshirt  = cartPage.GetItemInCard(tshirt).Text;
 
@@ -52,6 +58,7 @@ namespace SeleniumTestProject
                 Assert.IsTrue(jacet == bookedJacet);
                 Assert.IsTrue(tshirt == bookedTshirt);
             });
+            Console.WriteLine($"Проверяем наличие товара \"{bookedJacet}\" и \"{bookedTshirt}\" в корзине");
         }
     }
 }
