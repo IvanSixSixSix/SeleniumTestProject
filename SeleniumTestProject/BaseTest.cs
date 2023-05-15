@@ -1,7 +1,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace SeleniumTestProject
 {
@@ -14,7 +15,13 @@ namespace SeleniumTestProject
         {
             driver = new ChromeDriver();
 
-            driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            var jsonFilePath = "appconfig.json";
+            var jsonContent = File.ReadAllText(jsonFilePath);
+            JObject config = JObject.Parse(jsonContent);
+            var connectionString = (string)config["connectionString"];
+
+            driver.Navigate().GoToUrl(connectionString);
+            //driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
 
         [TearDown]

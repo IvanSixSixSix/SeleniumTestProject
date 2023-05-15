@@ -1,17 +1,11 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V108.Debugger;
 using PageObject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SeleniumTestProject
 {
-    
+
     public class Test1 : BaseTest
     {
         [Test]
