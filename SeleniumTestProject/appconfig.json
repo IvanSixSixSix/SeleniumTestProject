@@ -1,5 +1,5 @@
 {
   "connectionString": "https://www.saucedemo.com/",
-  "login": "false",
-  "password": "true"
+  "login": "performance_glitch_user",
+  "password": "secret_sauce"
 }

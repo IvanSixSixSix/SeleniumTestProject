@@ -21,7 +21,7 @@ namespace SeleniumTestProject
             var connectionString = (string)config["connectionString"];
 
             driver.Navigate().GoToUrl(connectionString);
-            //driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+
         }
 
         [TearDown]
